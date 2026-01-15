@@ -23,4 +23,13 @@ export default defineConfigWithVueTs(
     ...pluginVitest.configs.recommended,
     files: ['src/**/__tests__/*'],
   },
+
+  {
+    name: 'app/vue-rules',
+    rules: {
+      'vue/multi-word-component-names': ['error', {
+        ignores: ['Navigation', 'Footer', 'Header']
+      }]
+    }
+  },
 )
