@@ -116,8 +116,6 @@ const handleSubmit = () => {
 <style scoped>
 .contact {
   width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
 }
 
 h1 {

@@ -24,10 +24,14 @@ import Navigation from './components/Navigation.vue'
 
 main {
   flex: 1;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 2rem 4rem;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 1rem;
+  }
 }
 
 .footer {
