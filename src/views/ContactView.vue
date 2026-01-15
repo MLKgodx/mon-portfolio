@@ -54,7 +54,7 @@ const handleSubmit = () => {
         <h2>Informations</h2>
         <div class="info-item">
           <strong>Email:</strong>
-          <a href="mailto:contact@example.com">contact@example.com</a>
+          <a href="mailto:contact@example.com">lucas.helloco@gmail.com</a>
         </div>
         <div class="info-item">
           <strong>LinkedIn:</strong>
