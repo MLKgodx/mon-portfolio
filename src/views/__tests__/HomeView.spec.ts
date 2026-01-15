@@ -62,6 +62,68 @@ describe('HomeView', () => {
     expect(buttons[1]?.text()).toContain('Me contacter')
   })
 
+  it('primary button has correct CSS class', () => {
+    const wrapper = mount(HomeView, {
+      global: {
+        plugins: [router],
+      },
+    })
+
+    const primaryButton = wrapper.find('.btn-primary')
+    expect(primaryButton.exists()).toBe(true)
+    expect(primaryButton.classes()).toContain('btn')
+    expect(primaryButton.classes()).toContain('btn-primary')
+  })
+
+  it('secondary button has correct CSS class', () => {
+    const wrapper = mount(HomeView, {
+      global: {
+        plugins: [router],
+      },
+    })
+
+    const secondaryButton = wrapper.find('.btn-secondary')
+    expect(secondaryButton.exists()).toBe(true)
+    expect(secondaryButton.classes()).toContain('btn')
+    expect(secondaryButton.classes()).toContain('btn-secondary')
+  })
+
+  it('primary button links to projects page', () => {
+    const wrapper = mount(HomeView, {
+      global: {
+        plugins: [router],
+      },
+    })
+
+    const primaryButton = wrapper.find('.btn-primary')
+    expect(primaryButton.attributes('href')).toBe('/projects')
+  })
+
+  it('secondary button links to contact page', () => {
+    const wrapper = mount(HomeView, {
+      global: {
+        plugins: [router],
+      },
+    })
+
+    const secondaryButton = wrapper.find('.btn-secondary')
+    expect(secondaryButton.attributes('href')).toBe('/contact')
+  })
+
+  it('buttons are RouterLink components', () => {
+    const wrapper = mount(HomeView, {
+      global: {
+        plugins: [router],
+      },
+    })
+
+    const buttons = wrapper.findAll('a.btn')
+    expect(buttons.length).toBe(2)
+    buttons.forEach(button => {
+      expect(button.element.tagName.toLowerCase()).toBe('a')
+    })
+  })
+
   it('displays Vue.js as a skill', () => {
     const wrapper = mount(HomeView, {
       global: {

@@ -88,4 +88,34 @@ describe('ContactView', () => {
     expect(submitButton.exists()).toBe(true)
     expect(submitButton.text()).toContain('Envoyer')
   })
+
+  it('submit button has correct CSS class', () => {
+    const submitButton = wrapper.find('button[type="submit"]')
+    expect(submitButton.classes()).toContain('submit-btn')
+  })
+
+  it('submit button is a button element', () => {
+    const submitButton = wrapper.find('button[type="submit"]')
+    expect(submitButton.element.tagName.toLowerCase()).toBe('button')
+  })
+
+  it('submit button has type submit', () => {
+    const submitButton = wrapper.find('button[type="submit"]')
+    expect(submitButton.attributes('type')).toBe('submit')
+  })
+
+  it('submit button triggers form submission', async () => {
+    const nameInput = wrapper.find('#name')
+    const emailInput = wrapper.find('#email')
+    const messageInput = wrapper.find('#message')
+
+    await nameInput.setValue('John Doe')
+    await emailInput.setValue('john@example.com')
+    await messageInput.setValue('Hello')
+
+    const form = wrapper.find('form')
+    await form.trigger('submit')
+
+    expect(wrapper.find('.success-message').exists()).toBe(true)
+  })
 })
