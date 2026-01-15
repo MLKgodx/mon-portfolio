@@ -71,8 +71,11 @@ describe('Navigation', () => {
     const navLinks = wrapper.find('.nav-links')
     expect(navLinks.classes()).toContain('active')
 
-    const link = wrapper.findAll('.nav-links a')[1]
-    await link.trigger('click')
+    const links = wrapper.findAll('.nav-links a')
+    const link = links[1]
+    if (link) {
+      await link.trigger('click')
+    }
 
     expect(navLinks.classes()).not.toContain('active')
   })

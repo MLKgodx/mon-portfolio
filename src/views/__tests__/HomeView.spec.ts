@@ -58,8 +58,8 @@ describe('HomeView', () => {
 
     const buttons = wrapper.findAll('.btn')
     expect(buttons.length).toBe(2)
-    expect(buttons[0].text()).toContain('Voir mes projets')
-    expect(buttons[1].text()).toContain('Me contacter')
+    expect(buttons[0]?.text()).toContain('Voir mes projets')
+    expect(buttons[1]?.text()).toContain('Me contacter')
   })
 
   it('displays Vue.js as a skill', () => {
